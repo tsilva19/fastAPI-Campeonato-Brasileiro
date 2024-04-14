@@ -1,8 +1,8 @@
 from fastapi import APIRouter,Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
-from service.crud import criar_rodada, lista_rodada #  update_game
-from schemas.schemas import CriarRodadas
+from service.crud import criar_rodada, lista_rodada, atualiza_jogo #  update_game
+from schemas.schemas import CriarRodadas, AtualizarJogo
 from repository.database import SessionLocal
 router = APIRouter()
 
@@ -26,9 +26,9 @@ def lista_rodada_api(numero_rodada: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="rodada não encontrada")
     return round_data
 
-# @router.put("/rodadas/{numero_rodada}/jogos/{numero_jogo}/")
-# def atualizar_jogo_api(numero_rodada: int, numero_jogo: int, gol_time_a: int, gol_time_b: int):
-#     updated_game = update_game(numero_rodada, numero_jogo, gol_time_a, gol_time_b)
-#     if not updated_game:
-#         raise HTTPException(status_code=404, detail="Jogo não encontrado")
-#     return updated_game
+@router.put("/rodadas/{numero_rodada}/jogos/{numero_jogo}/", response_model=AtualizarJogo)
+def atualizar_jogo_api(numero_rodada: int, numero_jogo: int, atualiza_jogo_request: AtualizarJogo, db: Session = Depends(get_db)):
+    atualizado = atualiza_jogo(db, numero_rodada, numero_jogo, atualiza_jogo_request)
+    if not atualizado:
+        raise HTTPException(status_code=404, detail="Jogo não encontrado")
+    return atualizado

@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session, joinedload
 
 from models.models import Jogo, Rodada
-from schemas.schemas import CriarRodadas
+from schemas.schemas import AtualizarJogo, CriarRodadas
 from typing import List
 
 def criar_rodada(db: Session, dados_rodadas: CriarRodadas):
@@ -39,3 +39,13 @@ def lista_rodada(db: Session, numero_rodada: int):
      rodada_com_jogos = db.query(Rodada).options(joinedload(Rodada.jogos)).filter(Rodada.id == rodada.id).first()
     
      return rodada_com_jogos
+ 
+def atualiza_jogo(db: Session, numero_rodada: int, numero_jogo: int, atualiza_jogo: AtualizarJogo):
+    jogo = db.query(Jogo).filter(Jogo.rodada_id == numero_rodada, Jogo.numero_jogo == numero_jogo).first()
+    if jogo:
+        jogo.gol_time_a = atualiza_jogo.gol_time_a
+        jogo.gol_time_b = atualiza_jogo.gol_time_b
+        db.commit()
+        db.refresh(jogo)
+        return jogo
+    return None

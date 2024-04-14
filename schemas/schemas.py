@@ -11,4 +11,7 @@ class CriarRodadas(BaseModel):
     numero_rodada: int
     jogos: List[Jogo]
 
+class AtualizarJogo(BaseModel):
+    gol_time_a: int
+    gol_time_b: int
 

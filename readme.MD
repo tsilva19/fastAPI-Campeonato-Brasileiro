@@ -123,3 +123,10 @@ Cadastra os times daquela rodada exemplo  rodada 1 , Observação  mesmo o valor
 Você inclui informa o numero da rodada,  retorna os jogos vinculados a mesma
 
 ![exemplo GET](exemplo_get.png)
+
+
+### PUT
+
+Atualiza o numero de gols dos jogos informando  , o numero da rodada , o numero do jogo,  o valor de gols do time a e o valor de gols do time B
+
+![exemplo PUT](exemplo_put.png)
