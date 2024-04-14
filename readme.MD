@@ -11,9 +11,7 @@ Este é um projeto de exemplo para demonstrar como criar uma aplicação web usa
 
 ## Instalação
 
-1. Baixe o repositório o git:
-
-     ``git clone https://github.com/seu-usuario/campeonato-brasileiro-python.git`` 
+1. Baixe o repositório o git
 
 ##
 
@@ -42,15 +40,15 @@ Isso iniciará o servidor FastAPI na porta 8000. Você pode acessar a documenta�
     repository/database.py: Configuração do banco de dados e funções para inicializá-lo.
     routes/routes.py: Define as rotas da API usando FastAPI.
     service/crud.py: Define  o serviço de regras de negocio e cada logica(funcionalidade) que  a api ira realizar.
-    models/models.py: Define os modelos de dados usando SQLAlchemy.
-    schemas/schemas.py: Define os esquemas de dados usando Pydantic.
+    models/models.py: Define os modelos de dados usando SQLAlchemy(para criação de tabelas e utilidade para queries, insert e update).
+    schemas/schemas.py: Define os esquemas de dados usando Pydantic(valida as informações passadas via rota).
 
 ## Exemplo de uso 
 
 ### POST
 ![exemplo POST](exemplo_post.png)
 
-Cadastra os times daquela rodada exemplo  rodada 1 , Observação  mesmo o valor de gols , no cadastro é sempre 0 ,  pois o valor da rodada
+Cadastra os times daquela rodada exemplo  rodada 1 , Observação  mesmo o valor de gols informado durante o cadstro , no cadastro é sempre 0 ,  pois o valor da rodada é apenas demostrativo.
 
 ``
     {
