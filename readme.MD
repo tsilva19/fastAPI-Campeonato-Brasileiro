@@ -48,7 +48,7 @@ Isso iniciará o servidor FastAPI na porta 8000. Você pode acessar a documenta�
 ### POST
 ![exemplo POST](exemplo_post.png)
 
-Cadastra os times daquela rodada exemplo  rodada 1 , Observação  mesmo o valor de gols informado durante o cadstro , no cadastro é sempre 0 ,  pois o valor da rodada é apenas demostrativo.
+Cadastra os times daquela rodada exemplo  rodada 1 , Observação  mesmo o valor de gols informado durante o cadstro , no cadastro é sempre 0 ,  pois o valor da rodada é apenas demonstrativo.
 
 ``
     {
